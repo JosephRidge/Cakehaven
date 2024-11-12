@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import '../widgets/text.dart';
+import '../utils/constants.dart' as globalConstants;
+import '../widgets/edittext.dart';
+import '../widgets/button.dart';
+import '../pages/cakepage.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -10,46 +14,60 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  proceedToCakePage(var context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const MyCakePage()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: globalConstants.primaryColor,
+        title: const TextWidget(
+            displayText: globalConstants.appName, styleVariant: 'subtitle'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold)),
-            const Text('You have pushed the button this many times:',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal)),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const TextWidget(
+                  displayText: globalConstants.welcomeText,
+                  styleVariant: 'title'),
+              const TextWidget(
+                  displayText: globalConstants.homeSubTitle,
+                  styleVariant: 'subtitle'),
+              const TextWidget(
+                  displayText: globalConstants.homeGetStarted,
+                  styleVariant: 'normal'),
+              const EditText(
+                hintText: 'Enter your name here ...',
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom( 
+                  backgroundColor: globalConstants.secondaryColor,
+                  alignment: Alignment.center,
+                  minimumSize: globalConstants.buttonMinSize,
+                  padding: globalConstants.buttonPadding,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: globalConstants.borderRadius,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyCakePage()),
+                  );
+                },
+                child: const TextWidget(
+                    displayText: 'proceed', styleVariant: 'button'),
+              )
+            ],
+          )),
     );
   }
 }

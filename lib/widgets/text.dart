@@ -11,15 +11,18 @@ class TextWidget extends StatelessWidget {
     style() {
       switch (styleVariant) {
         case "title":
-          const TextStyle(
+          return const TextStyle(
               fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black);
         case "subtitle":
-          const TextStyle(
-              fontSize: 16, color: Colors.black12, fontWeight: FontWeight.w300);
+         return const TextStyle(
+              fontSize: 16, color: Colors.black, fontWeight: FontWeight.w300);
+         case "button":
+         return const TextStyle(
+              fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold);
         default:
-          const TextStyle(fontSize: 12, color: Colors.black12);
+         return  const TextStyle(fontSize: 12, color: Colors.black);
       }
     }
-    return Text(displayText, style: style());
+    return Text(displayText, style: style(), textAlign: TextAlign.start,);
   }
 }
