@@ -1,10 +1,14 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
+// styling 
 const Color primaryColor = Color(0xffFF7F11);
 const Color secondaryColor = Color(0xff262626);
+const buttonPadding = EdgeInsets.symmetric(horizontal: 16);
+const borderRadius = BorderRadius.all(Radius.circular(10));
+const buttonMinSize = Size(100,40);
 
+// string based constants
 const String welcomeText =
     "Welcome to Bakery Heaven, where flour meets profession";
 const String homeSubTitle = "Sharing divine sweetness...";
@@ -20,6 +24,3 @@ const String strawberryCakeDescription =
     "Strawberry cake is a cake that uses strawberry as a primary ingredient. Strawberries may be used in the cake batter, atop the cake, and in the frosting. Strawberry cakes are typically served cold.";
 
 
-const buttonPadding = EdgeInsets.symmetric(horizontal: 16);
-const borderRadius = BorderRadius.all(Radius.circular(10));
-const buttonMinSize = Size(100,40);

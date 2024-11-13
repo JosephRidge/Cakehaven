@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../widgets/text.dart';
 import '../utils/constants.dart' as globalConstants;
 import '../widgets/edittext.dart';
-import '../widgets/button.dart';
 import '../pages/cakepage.dart';
 
 class MyHomePage extends StatefulWidget {
